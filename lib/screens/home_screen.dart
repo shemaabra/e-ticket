@@ -1,3 +1,4 @@
+import 'package:booktickets/screens/hotel_screen.dart';
 import 'package:booktickets/screens/ticket_view.dart';
 import 'package:booktickets/utils/app_styles.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
@@ -112,7 +113,28 @@ class HomeScreen extends StatelessWidget {
                   "Hotels",
                   style: Styles.headLineStyle2,
                 ),
-                InkWell(onTap: ()  => {debugPrint("View all hotels taped")}, child: Text("View All", style: Styles.textStyle.copyWith(color: Styles.primaryColor),),),
+                InkWell(
+                  onTap: () => {debugPrint("View all hotels taped")},
+                  child: Text(
+                    "View All",
+                    style:
+                        Styles.textStyle.copyWith(color: Styles.primaryColor),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Gap(15),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: EdgeInsets.only(left: 20),
+            child: Row(
+              children: [
+                HotelScreen(),
+                HotelScreen(),
+                HotelScreen(),
+                HotelScreen(),
+                HotelScreen(),
               ],
             ),
           ),
