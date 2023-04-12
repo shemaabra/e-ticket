@@ -5,6 +5,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -33,7 +34,9 @@ class HomeScreen extends StatelessWidget {
                         const Gap(5),
                         Text(
                           "Book Tickets",
+                          // style: GoogleFonts.lato(),
                           style: Styles.headLineStyle1,
+
                         )
                       ],
                     ),
