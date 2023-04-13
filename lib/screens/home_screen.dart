@@ -31,13 +31,16 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Good Morning",
-                          style: Styles.headLineStyle3,
+                          style: GoogleFonts.montserrat(
+                              textStyle: Styles.headLineStyle3
+                          ),
                         ),
                         const Gap(5),
                         Text(
                           "Book Tickets",
-                          // style: GoogleFonts.lato(),
-                          style: Styles.headLineStyle1,
+                          style: GoogleFonts.montserrat(
+                              textStyle: Styles.headLineStyle1
+                          ),
                         )
                       ],
                     ),
@@ -74,9 +77,12 @@ class HomeScreen extends StatelessWidget {
                         FluentSystemIcons.ic_fluent_search_regular,
                         color: Color(0xFFBFC205),
                       ),
+                      Gap(AppLayout.getWidth(10)),
                       Text(
                         "Search",
-                        style: Styles.headLineStyle4,
+                        style: GoogleFonts.montserrat(
+                            textStyle: Styles.headLineStyle4
+                        ),
                       ),
                     ],
                   ),
@@ -87,14 +93,15 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Text(
                       "Upcoming Flight",
-                      style: Styles.headLineStyle2,
+                      style: GoogleFonts.montserrat(textStyle: Styles.headLineStyle2),
                     ),
                     InkWell(
                       onTap: () => {debugPrint("You are Tapped!")},
                       child: Text(
                         "View All",
-                        style: Styles.textStyle
-                            .copyWith(color: Styles.primaryColor),
+                        style: GoogleFonts.montserrat(
+                            textStyle: Styles.textStyle.copyWith(color: Styles.primaryColor)
+                        ),
                       ),
                     ),
                   ],
@@ -122,14 +129,15 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Text(
                   "Hotels",
-                  style: Styles.headLineStyle2,
+                  style: GoogleFonts.montserrat(textStyle: Styles.headLineStyle2),
                 ),
                 InkWell(
                   onTap: () => {debugPrint("View all hotels taped")},
                   child: Text(
                     "View All",
-                    style:
-                        Styles.textStyle.copyWith(color: Styles.primaryColor),
+                    style: GoogleFonts.montserrat(
+                        textStyle: Styles.textStyle.copyWith(color: Styles.primaryColor)
+                    ),
                   ),
                 ),
               ],

@@ -4,6 +4,7 @@ import 'package:booktickets/widgets/thick_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TicketView extends StatelessWidget {
   final Map<String, dynamic> ticket;
@@ -40,8 +41,9 @@ class TicketView extends StatelessWidget {
                     children: [
                       Text(
                         ticket['from']['code'],
-                        style:
-                            Styles.headLineStyle3.copyWith(color: Colors.white),
+                        style: GoogleFonts.montserrat(
+                            textStyle: Styles.headLineStyle3.copyWith(color: Colors.white)
+                        ),
                       ),
                       Expanded(child: Container()),
                       const ThickContainer(),
@@ -88,8 +90,9 @@ class TicketView extends StatelessWidget {
                       Expanded(child: Container()),
                       Text(
                         ticket['to']['code'],
-                        style:
-                            Styles.headLineStyle3.copyWith(color: Colors.white),
+                        style: GoogleFonts.montserrat(
+                            textStyle: Styles.headLineStyle3.copyWith(color: Colors.white)
+                        ),
                       )
                     ],
                   ),
@@ -101,22 +104,27 @@ class TicketView extends StatelessWidget {
                         width: AppLayout.getWidth(100),
                         child: Text(
                           ticket['from']['name'],
-                          style: Styles.headLineStyle4
-                              .copyWith(color: Colors.white),
+                          style: GoogleFonts.montserrat(
+                              textStyle: Styles.headLineStyle4.copyWith(color: Colors.white)
+                          ),
                         ),
                       ),
                       Text(
                         ticket['flying_time'],
-                        style:
-                            Styles.headLineStyle3.copyWith(color: Colors.white),
+                        style: GoogleFonts.montserrat(
+                            textStyle: Styles.headLineStyle3.copyWith(color: Colors.white)
+                        ),
+                        // style:
+                        //     Styles.headLineStyle3.copyWith(color: Colors.white),
                       ),
                       SizedBox(
                         width: AppLayout.getWidth(100),
                         child: Text(
                           ticket['to']['name'],
                           textAlign: TextAlign.end,
-                          style: Styles.headLineStyle4
-                              .copyWith(color: Colors.white),
+                          style: GoogleFonts.montserrat(
+                              textStyle: Styles.headLineStyle4.copyWith(color: Colors.white)
+                          ),
                         ),
                       ),
                     ],
@@ -206,14 +214,16 @@ class TicketView extends StatelessWidget {
                         children: [
                           Text(
                             ticket['date'],
-                            style: Styles.headLineStyle3
-                                .copyWith(color: Colors.white),
+                            style: GoogleFonts.montserrat(
+                                textStyle: Styles.headLineStyle3.copyWith(color: Colors.white)
+                            ),
                           ),
                           const Gap(5),
                           Text(
                             "Date",
-                            style: Styles.headLineStyle4
-                                .copyWith(color: Colors.white),
+                            style: GoogleFonts.montserrat(
+                                textStyle: Styles.headLineStyle4.copyWith(color: Colors.white)
+                            ),
                           ),
                         ],
                       ),
@@ -222,14 +232,16 @@ class TicketView extends StatelessWidget {
                         children: [
                           Text(
                             ticket['departure_time'],
-                            style: Styles.headLineStyle3
-                                .copyWith(color: Colors.white),
+                            style: GoogleFonts.montserrat(
+                                textStyle: Styles.headLineStyle3.copyWith(color: Colors.white)
+                            ),
                           ),
                           const Gap(5),
                           Text(
                             "Departure time",
-                            style: Styles.headLineStyle4
-                                .copyWith(color: Colors.white),
+                            style: GoogleFonts.montserrat(
+                                textStyle: Styles.headLineStyle4.copyWith(color: Colors.white)
+                            ),
                           ),
                         ],
                       ),
@@ -238,14 +250,16 @@ class TicketView extends StatelessWidget {
                         children: [
                           Text(
                             ticket['number'].toString(),
-                            style: Styles.headLineStyle3
-                                .copyWith(color: Colors.white),
+                            style: GoogleFonts.montserrat(
+                                textStyle: Styles.headLineStyle3.copyWith(color: Colors.white)
+                            ),
                           ),
                           const Gap(5),
                           Text(
                             "Number",
-                            style: Styles.headLineStyle4
-                                .copyWith(color: Colors.white),
+                            style: GoogleFonts.montserrat(
+                                textStyle: Styles.headLineStyle4.copyWith(color: Colors.white)
+                            ),
                           ),
                         ],
                       ),

@@ -2,7 +2,7 @@ import 'package:booktickets/utils/app_layout.dart';
 import 'package:booktickets/widgets/icon_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import '../utils/app_styles.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -24,8 +24,10 @@ class SearchScreen extends StatelessWidget {
           ),
           Text(
             "What are\nyou looking for?",
-            style: Styles.headLineStyle1.copyWith(
-              fontSize: AppLayout.getWidth(35),
+            style: GoogleFonts.montserrat(
+              textStyle: Styles.headLineStyle1.copyWith(
+                fontSize: AppLayout.getWidth(35),
+              ),
             ),
           ),
           Gap(
@@ -53,7 +55,10 @@ class SearchScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                     child: Center(
-                      child: Text("Airline Tickets"),
+                      child: Text(
+                        "Airline Tickets",
+                        style: GoogleFonts.montserrat(),
+                      ),
                     ),
                   ),
                   /*
@@ -73,7 +78,10 @@ class SearchScreen extends StatelessWidget {
                       color: Colors.transparent,
                     ),
                     child: Center(
-                      child: Text("Hotels"),
+                      child: Text(
+                        "Hotels",
+                        style: GoogleFonts.montserrat(),
+                      ),
                     ),
                   ),
                 ],
@@ -89,7 +97,37 @@ class SearchScreen extends StatelessWidget {
           Gap(
             AppLayout.getHeight(25),
           ),
-          IconText(),
+          const AppIconText(
+              icon: Icons.flight_takeoff_rounded, text: "Departure"),
+          Gap(
+            AppLayout.getHeight(15),
+          ),
+          const AppIconText(icon: Icons.flight_land_rounded, text: "Arrival"),
+          Gap(
+            AppLayout.getHeight(15),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(
+              vertical: AppLayout.getHeight(12),
+              horizontal: AppLayout.getWidth(12),
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(
+                AppLayout.getHeight(10),
+              ),
+              color: const Color(0xD91130CE),
+            ),
+            child: Center(
+              child: Text(
+                "Find Tickets",
+                style: GoogleFonts.montserrat(
+                  textStyle: Styles.textStyle.copyWith(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
