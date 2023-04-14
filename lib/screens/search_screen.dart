@@ -1,6 +1,7 @@
 import 'package:booktickets/utils/app_layout.dart';
 import 'package:booktickets/widgets/double_text_widget.dart';
 import 'package:booktickets/widgets/icon_text_widget.dart';
+import 'package:booktickets/widgets/ticket_tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,67 +35,7 @@ class SearchScreen extends StatelessWidget {
           Gap(
             AppLayout.getHeight(20),
           ),
-          FittedBox(
-            child: Container(
-              padding: EdgeInsets.all(AppLayout.getHeight(3.5)),
-              child: Row(
-                children: [
-                  /*
-                     Airline Tickets
-                   */
-                  Container(
-                    width: size.width * .44,
-                    padding: EdgeInsets.symmetric(
-                      vertical: AppLayout.getHeight(7),
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.horizontal(
-                        left: Radius.circular(
-                          AppLayout.getHeight(50),
-                        ),
-                      ),
-                      color: Colors.white,
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Airline Tickets",
-                        style: GoogleFonts.montserrat(),
-                      ),
-                    ),
-                  ),
-                  /*
-                    Hotels
-                   */
-                  Container(
-                    width: size.width * .44,
-                    padding: EdgeInsets.symmetric(
-                      vertical: AppLayout.getHeight(7),
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.horizontal(
-                        right: Radius.circular(
-                          AppLayout.getHeight(50),
-                        ),
-                      ),
-                      color: Colors.transparent,
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Hotels",
-                        style: GoogleFonts.montserrat(),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(
-                  AppLayout.getHeight(50),
-                ),
-                color: const Color(0xFFF4F6FD),
-              ),
-            ),
-          ),
+          const AppTicketTabs(leftTab: "Airline Tickets", rightTab: "Hotels"),
           Gap(
             AppLayout.getHeight(25),
           ),

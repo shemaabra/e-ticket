@@ -100,7 +100,7 @@ class HomeScreen extends StatelessWidget {
               left: AppLayout.getHeight(20),
             ),
             child: Row(
-              children: ticketList.map((e) => TicketView(ticket: e)).toList(),
+              children: ticketList.map((e) => TicketView(ticket: e, isColor: null)).toList(),
             ),
           ),
           const Gap(15),

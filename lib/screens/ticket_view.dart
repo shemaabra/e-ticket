@@ -8,8 +8,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TicketView extends StatelessWidget {
   final Map<String, dynamic> ticket;
+  final bool? isColor;
 
-  const TicketView({super.key, required this.ticket});
+  const TicketView({super.key, required this.ticket, required this.isColor});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,8 @@ class TicketView extends StatelessWidget {
             */
             Container(
               decoration: BoxDecoration(
-                color: Color(0xFF526799),
+                color: isColor == null ? const Color(0xFF526799) : Colors.white,
+                // color: Colors.blue,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(AppLayout.getHeight(21)),
                   topRight: Radius.circular(AppLayout.getHeight(21)),
@@ -42,11 +44,14 @@ class TicketView extends StatelessWidget {
                       Text(
                         ticket['from']['code'],
                         style: GoogleFonts.montserrat(
-                            textStyle: Styles.headLineStyle3.copyWith(color: Colors.white)
-                        ),
+                            textStyle: isColor == null
+                                ? Styles.headLineStyle3
+                                    .copyWith(color: Colors.white)
+                                : Styles.headLineStyle3
+                                    .copyWith(color: Colors.black54)),
                       ),
                       Expanded(child: Container()),
-                      const ThickContainer(),
+                      const ThickContainer(isColor: true),
                       Expanded(
                         child: Stack(
                           children: [
@@ -65,9 +70,9 @@ class TicketView extends StatelessWidget {
                                       (index) => SizedBox(
                                         width: AppLayout.getWidth(3),
                                         height: AppLayout.getHeight(1),
-                                        child: const DecoratedBox(
+                                        child: DecoratedBox(
                                           decoration: BoxDecoration(
-                                              color: Colors.white),
+                                              color: isColor==null? Colors.white: Colors.grey.shade300),
                                         ),
                                       ),
                                     ),
@@ -78,21 +83,24 @@ class TicketView extends StatelessWidget {
                             Center(
                                 child: Transform.rotate(
                               angle: 1.5,
-                              child: const Icon(
+                              child: Icon(
                                 Icons.local_airport_rounded,
-                                color: Colors.white,
+                                color: isColor==null? Colors.white: const Color(0xFF8ACCF7),
                               ),
                             )),
                           ],
                         ),
                       ),
-                      const ThickContainer(),
+                     const ThickContainer(isColor:true),
                       Expanded(child: Container()),
                       Text(
                         ticket['to']['code'],
                         style: GoogleFonts.montserrat(
-                            textStyle: Styles.headLineStyle3.copyWith(color: Colors.white)
-                        ),
+                            textStyle: isColor == null
+                                ? Styles.headLineStyle3
+                                    .copyWith(color: Colors.white)
+                                : Styles.headLineStyle3
+                                    .copyWith(color: Colors.black54)),
                       )
                     ],
                   ),
@@ -105,15 +113,21 @@ class TicketView extends StatelessWidget {
                         child: Text(
                           ticket['from']['name'],
                           style: GoogleFonts.montserrat(
-                              textStyle: Styles.headLineStyle4.copyWith(color: Colors.white)
-                          ),
+                              textStyle: isColor == null
+                                  ? Styles.headLineStyle4
+                                      .copyWith(color: Colors.white)
+                                  : Styles.headLineStyle4
+                                      .copyWith(color: Colors.black54)),
                         ),
                       ),
                       Text(
                         ticket['flying_time'],
                         style: GoogleFonts.montserrat(
-                            textStyle: Styles.headLineStyle3.copyWith(color: Colors.white)
-                        ),
+                            textStyle: isColor == null
+                                ? Styles.headLineStyle3
+                                    .copyWith(color: Colors.white)
+                                : Styles.headLineStyle3
+                                    .copyWith(color: Colors.black54)),
                         // style:
                         //     Styles.headLineStyle3.copyWith(color: Colors.white),
                       ),
@@ -123,8 +137,11 @@ class TicketView extends StatelessWidget {
                           ticket['to']['name'],
                           textAlign: TextAlign.end,
                           style: GoogleFonts.montserrat(
-                              textStyle: Styles.headLineStyle4.copyWith(color: Colors.white)
-                          ),
+                              textStyle: isColor == null
+                                  ? Styles.headLineStyle4
+                                      .copyWith(color: Colors.white)
+                                  : Styles.headLineStyle4
+                                      .copyWith(color: Colors.black54)),
                         ),
                       ),
                     ],
@@ -168,8 +185,9 @@ class TicketView extends StatelessWidget {
                                     width: AppLayout.getWidth(5),
                                     height: AppLayout.getHeight(1),
                                     child: const DecoratedBox(
-                                      decoration:
-                                          BoxDecoration(color: Colors.white),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   )),
                         );
@@ -181,7 +199,7 @@ class TicketView extends StatelessWidget {
                     width: AppLayout.getWidth(10),
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                        color: const Color(0xFFeeedf2),
+                        color: Color(0xFFeeedf2),
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(AppLayout.getHeight(10)),
                           bottomLeft: Radius.circular(AppLayout.getHeight(10)),
@@ -215,15 +233,15 @@ class TicketView extends StatelessWidget {
                           Text(
                             ticket['date'],
                             style: GoogleFonts.montserrat(
-                                textStyle: Styles.headLineStyle3.copyWith(color: Colors.white)
-                            ),
+                                textStyle: Styles.headLineStyle3
+                                    .copyWith(color: Colors.white)),
                           ),
                           const Gap(5),
                           Text(
                             "Date",
                             style: GoogleFonts.montserrat(
-                                textStyle: Styles.headLineStyle4.copyWith(color: Colors.white)
-                            ),
+                                textStyle: Styles.headLineStyle4
+                                    .copyWith(color: Colors.white)),
                           ),
                         ],
                       ),
@@ -233,15 +251,15 @@ class TicketView extends StatelessWidget {
                           Text(
                             ticket['departure_time'],
                             style: GoogleFonts.montserrat(
-                                textStyle: Styles.headLineStyle3.copyWith(color: Colors.white)
-                            ),
+                                textStyle: Styles.headLineStyle3
+                                    .copyWith(color: Colors.white)),
                           ),
                           const Gap(5),
                           Text(
                             "Departure time",
                             style: GoogleFonts.montserrat(
-                                textStyle: Styles.headLineStyle4.copyWith(color: Colors.white)
-                            ),
+                                textStyle: Styles.headLineStyle4
+                                    .copyWith(color: Colors.white)),
                           ),
                         ],
                       ),
@@ -251,15 +269,15 @@ class TicketView extends StatelessWidget {
                           Text(
                             ticket['number'].toString(),
                             style: GoogleFonts.montserrat(
-                                textStyle: Styles.headLineStyle3.copyWith(color: Colors.white)
-                            ),
+                                textStyle: Styles.headLineStyle3
+                                    .copyWith(color: Colors.white)),
                           ),
                           const Gap(5),
                           Text(
                             "Number",
                             style: GoogleFonts.montserrat(
-                                textStyle: Styles.headLineStyle4.copyWith(color: Colors.white)
-                            ),
+                                textStyle: Styles.headLineStyle4
+                                    .copyWith(color: Colors.white)),
                           ),
                         ],
                       ),
