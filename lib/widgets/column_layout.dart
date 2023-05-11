@@ -27,16 +27,20 @@ class AppColumnLayout extends StatelessWidget {
       children: [
         Text(
           firstText,
-          style: GoogleFonts.montserrat(
-            textStyle: Styles.headLineStyle3.copyWith(color: Colors.black),
-          ),
+          style: isColor == null ? GoogleFonts.montserrat(
+              textStyle: Styles.headLineStyle3.copyWith(
+                  color: Colors.white)) : GoogleFonts.montserrat(
+            textStyle: Styles.headLineStyle3.copyWith(
+                color: Colors.black)),
         ),
         Gap(AppLayout.getHeight(5)),
         Text(
           secondText,
-          style: GoogleFonts.montserrat(
-            textStyle: Styles.headLineStyle4,
-          ),
+          style: isColor == null ? GoogleFonts.montserrat(
+            textStyle: Styles.headLineStyle4.copyWith(
+                color:  Colors.white)):GoogleFonts.montserrat(
+              textStyle: Styles.headLineStyle4.copyWith(
+                  color:  Colors.black54))
         ),
       ],
     );

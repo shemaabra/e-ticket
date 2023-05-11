@@ -1,5 +1,7 @@
 import 'package:booktickets/utils/app_layout.dart';
 import 'package:booktickets/utils/app_styles.dart';
+import 'package:booktickets/widgets/column_layout.dart';
+import 'package:booktickets/widgets/layout_builder_widget.dart';
 import 'package:booktickets/widgets/thick_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +20,7 @@ class TicketView extends StatelessWidget {
     final size = AppLayout.getSize(context);
     return SizedBox(
       width: size.width * 0.85,
-      height: AppLayout.getHeight(GetPlatform.isAndroid==true?175:175),
+      height: AppLayout.getHeight(GetPlatform.isAndroid == true ? 175 : 175),
       child: Container(
         margin: EdgeInsets.only(right: AppLayout.getHeight(16)),
         child: Column(
@@ -58,30 +60,7 @@ class TicketView extends StatelessWidget {
                           children: [
                             SizedBox(
                               height: AppLayout.getHeight(24),
-                              child: LayoutBuilder(
-                                builder: (BuildContext, BoxConstraints) {
-                                  return Flex(
-                                    direction: Axis.horizontal,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: List.generate(
-                                      (BoxConstraints.constrainWidth() / 6)
-                                          .floor(),
-                                      (index) => SizedBox(
-                                        width: AppLayout.getWidth(3),
-                                        height: AppLayout.getHeight(1),
-                                        child: DecoratedBox(
-                                          decoration: BoxDecoration(
-                                              color: isColor == null
-                                                  ? Colors.white
-                                                  : Colors.grey.shade300),
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ),
+                              child: const AppLayoutBuilderWidget(section: 6, width: 3,),
                             ),
                             Center(
                                 child: Transform.rotate(
@@ -166,7 +145,9 @@ class TicketView extends StatelessWidget {
                     width: AppLayout.getWidth(10),
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                        color: isColor==null? const Color(0xFFeeedf2):Colors.white,
+                        color: isColor == null
+                            ? const Color(0xFFeeedf2)
+                            : Colors.white,
                         borderRadius: BorderRadius.only(
                           topRight: Radius.circular(AppLayout.getHeight(10)),
                           bottomRight: Radius.circular(AppLayout.getHeight(10)),
@@ -225,8 +206,12 @@ class TicketView extends StatelessWidget {
               decoration: BoxDecoration(
                 color: isColor == null ? Styles.orangeColor : Colors.white,
                 borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(isColor==null?AppLayout.getHeight(21):AppLayout.getHeight(0)),
-                  bottomLeft: Radius.circular(isColor==null?AppLayout.getHeight(21):AppLayout.getHeight(0)),
+                  bottomRight: Radius.circular(isColor == null
+                      ? AppLayout.getHeight(21)
+                      : AppLayout.getHeight(0)),
+                  bottomLeft: Radius.circular(isColor == null
+                      ? AppLayout.getHeight(21)
+                      : AppLayout.getHeight(0)),
                 ),
               ),
               padding: EdgeInsets.all(AppLayout.getHeight(16)),
@@ -235,75 +220,23 @@ class TicketView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            ticket['date'],
-                            style: GoogleFonts.montserrat(
-                                textStyle: Styles.headLineStyle3.copyWith(
-                                    color: isColor == null
-                                        ? Colors.white
-                                        : Colors.black)),
-                          ),
-                          const Gap(5),
-                          Text(
-                            "Date",
-                            style: GoogleFonts.montserrat(
-                              textStyle: Styles.headLineStyle4.copyWith(
-                                  color: isColor == null
-                                      ? Colors.white
-                                      : Colors.black54),
-                            ),
-                          ),
-                        ],
+                      AppColumnLayout(
+                        firstText: ticket['date'],
+                        secondText: "Date",
+                        alignment: CrossAxisAlignment.start,
+                        isColor: isColor,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            ticket['departure_time'],
-                            style: GoogleFonts.montserrat(
-                              textStyle: Styles.headLineStyle3.copyWith(
-                                  color: isColor == null
-                                      ? Colors.white
-                                      : Colors.black),
-                            ),
-                          ),
-                          const Gap(5),
-                          Text(
-                            "Departure time",
-                            style: GoogleFonts.montserrat(
-                              textStyle: Styles.headLineStyle4.copyWith(
-                                  color: isColor == null
-                                      ? Colors.white
-                                      : Colors.black54),
-                            ),
-                          ),
-                        ],
+                      AppColumnLayout(
+                        firstText: ticket['departure_time'],
+                        secondText: "Departure time",
+                        alignment: CrossAxisAlignment.center,
+                        isColor: isColor,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            ticket['number'].toString(),
-                            style: GoogleFonts.montserrat(
-                                textStyle: Styles.headLineStyle3.copyWith(
-                                    color: isColor == null
-                                        ? Colors.white
-                                        : Colors.black)),
-                          ),
-                          const Gap(5),
-                          Text(
-                            "Number",
-                            style: GoogleFonts.montserrat(
-                              textStyle: Styles.headLineStyle4.copyWith(
-                                  color: isColor == null
-                                      ? Colors.white
-                                      : Colors.black54),
-                            ),
-                          ),
-                        ],
+                      AppColumnLayout(
+                        firstText: ticket['number'].toString(),
+                        secondText: "Number",
+                        alignment: CrossAxisAlignment.end,
+                        isColor: isColor,
                       ),
                     ],
                   ),
