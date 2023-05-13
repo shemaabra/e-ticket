@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:booktickets/utils/app_styles.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:fluentui_icons/fluentui_icons.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -62,10 +63,12 @@ class ProfileScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                              AppLayout.getHeight(100),
-                            ),
+                          decoration: const BoxDecoration(
+                              shape: BoxShape.circle, color: Color(0xFF526799)),
+                          child: const Icon(
+                            FluentSystemIcons.ic_fluent_shield_filled,
+                            color: Colors.white,
+                            size: 15,
                           ),
                         )
                       ],
